@@ -1,4 +1,6 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import com.example.lab8.City;
 import com.example.lab8.CustomList;
@@ -32,5 +34,14 @@ public class CustomListTest {
         int listSize = list.getCount();
         list.addCity(new City(("Estevon"),"SK"));
         assertEquals(list.getCount(),listSize + 1) ;
+    }
+
+    @Test
+    public void testHasCity(){
+        list = MockList();
+        City city = new City("Calgary","Alberta");
+        assertFalse(list.hasCity(city));
+        list.addCity(city);
+        assertTrue(list.hasCity(city));
     }
 }
