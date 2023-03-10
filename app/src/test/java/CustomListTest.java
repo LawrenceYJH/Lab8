@@ -1,5 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 import com.example.lab8.City;
@@ -52,5 +53,8 @@ public class CustomListTest {
         list.addCity(city);
         list.deleteCity(city);
         assertFalse(list.hasCity(city));
+        assertThrows(IllegalArgumentException.class, ()-> {
+            list.deleteCity(city);
+        });
     }
 }
